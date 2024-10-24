@@ -11,4 +11,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :teachers, only: [:new, :create, :index]
+  resources :students
+  get 'login', to: 'teachers#login'
+  post 'authenticate', to: 'teachers#authenticate'
+  root 'teachers#login'
+  
+  
 end
